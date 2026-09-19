@@ -21,81 +21,82 @@ export default function Settings() {
   }, []);
 
   return (
-    <div className="w-full px-6 py-6 flex flex-col gap-6 max-w-5xl mx-auto">
+    <div className="w-full space-y-6 max-w-5xl mx-auto">
       {/* Header Banner */}
-      <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#E8ECF0] rounded-xl p-5 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-md">
-            <SettingsIcon className="w-7 h-7" />
+          <div className="w-10 h-10 rounded-lg bg-[#07111F] text-white flex items-center justify-center shadow-xs">
+            <SettingsIcon className="w-5 h-5 text-blue-400" />
           </div>
           <div>
-            <h1 className="font-headline-lg text-headline-lg font-bold text-on-surface">SOC Platform Configuration</h1>
-            <p className="font-body-sm text-sm text-outline mt-0.5">
+            <h1 className="text-xl font-bold text-[#07111F] tracking-tight">SOC Platform Configuration</h1>
+            <p className="text-xs text-[#667085] mt-0.5">
               Manage system health metrics, API endpoints, microservice bindings, and safety simulation toggles.
             </p>
           </div>
         </div>
 
-        <span className="text-xs font-bold text-emerald-600 border border-emerald-300 px-3 py-1 rounded-full bg-emerald-50">
+        <span className="text-xs font-mono font-semibold text-[#027A48] border border-[#ABE5C6] px-2.5 py-1 rounded bg-[#ECFDF3]">
           {systemMode}
         </span>
       </div>
 
       {/* System Architecture Health Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-primary font-bold text-sm">
-            <Server className="w-5 h-5" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white border border-[#E8ECF0] rounded-xl p-5 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col gap-2.5">
+          <div className="flex items-center gap-2 text-[#07111F] font-bold text-xs">
+            <Server className="w-4 h-4 text-[#1570EF]" />
             <span>Main Express API Backend</span>
           </div>
-          <p className="text-xs text-outline font-mono">Port: 5000 (Node.js runtime)</p>
-          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 p-2 rounded-lg border border-emerald-300">
+          <p className="text-xs text-[#667085] font-mono">Port: 5000 (Node.js runtime)</p>
+          <span className="text-xs font-mono font-semibold text-[#027A48] bg-[#ECFDF3] p-2 rounded-lg border border-[#ABE5C6]">
             {nodeHealth}
           </span>
         </div>
 
-        <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-primary font-bold text-sm">
-            <Cpu className="w-5 h-5" />
+        <div className="bg-white border border-[#E8ECF0] rounded-xl p-5 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col gap-2.5">
+          <div className="flex items-center gap-2 text-[#07111F] font-bold text-xs">
+            <Cpu className="w-4 h-4 text-[#1570EF]" />
             <span>Python AI/ML Microservice</span>
           </div>
-          <p className="text-xs text-outline font-mono">Port: 8000 (FastAPI + Isolation Forest)</p>
-          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 p-2 rounded-lg border border-emerald-300">
+          <p className="text-xs text-[#667085] font-mono">Port: 8000 (FastAPI & Scikit-learn)</p>
+          <span className="text-xs font-mono font-semibold text-[#027A48] bg-[#ECFDF3] p-2 rounded-lg border border-[#ABE5C6]">
             {aiHealth}
           </span>
         </div>
 
-        <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-5 shadow-sm flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-primary font-bold text-sm">
-            <Database className="w-5 h-5" />
-            <span>MongoDB Database</span>
+        <div className="bg-white border border-[#E8ECF0] rounded-xl p-5 shadow-[0_2px_8px_rgba(15,23,42,0.03)] flex flex-col gap-2.5">
+          <div className="flex items-center gap-2 text-[#07111F] font-bold text-xs">
+            <Database className="w-4 h-4 text-[#1570EF]" />
+            <span>MongoDB Database Layer</span>
           </div>
-          <p className="text-xs text-outline font-mono">mongodb://127.0.0.1:27017/cyberai_db</p>
-          <span className="text-xs font-bold text-emerald-700 bg-emerald-100 p-2 rounded-lg border border-emerald-300">
-            MongoDB Store Synchronized
+          <p className="text-xs text-[#667085] font-mono">Database: cyberai (7 Collections)</p>
+          <span className="text-xs font-mono font-semibold text-[#027A48] bg-[#ECFDF3] p-2 rounded-lg border border-[#ABE5C6] flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5" />
+            Operational
           </span>
         </div>
       </div>
 
-      {/* Safety & Simulation Settings */}
-      <div className="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-6 shadow-sm flex flex-col gap-4">
-        <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface border-b border-outline-variant/40 pb-3">
-          Defensive Safety Directives
-        </h2>
+      {/* Defensive Safety Sandbox Guarantees */}
+      <div className="bg-white border border-[#E8ECF0] rounded-xl p-6 shadow-[0_4px_20px_rgba(15,23,42,0.04)] space-y-4">
+        <div className="flex items-center gap-2.5 border-b border-[#E8ECF0] pb-3">
+          <ShieldCheck className="w-5 h-5 text-[#027A48]" />
+          <h2 className="text-sm font-bold text-[#07111F]">Defensive Autonomous Response Safeguards</h2>
+        </div>
 
-        <div className="flex flex-col gap-3 text-xs">
-          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-              <div>
-                <strong className="font-bold text-xs">Simulation Mode Enforced</strong>
-                <p className="text-[11px] text-emerald-800 mt-0.5">
-                  All autonomous defensive actions (IP block, host isolation, account lock) run exclusively in simulated dry-run mode.
-                </p>
-              </div>
-            </div>
-            <span className="font-bold text-xs bg-emerald-200 px-3 py-1 rounded-full border border-emerald-300">ACTIVE</span>
+        <p className="text-xs text-[#344054] leading-relaxed">
+          The autonomous response engine operates strictly in a defensive sandbox simulation mode. All simulated IP drop rules, host quarantine commands, and credential locks emit audit telemetry without interfering with bare-metal network adapters or unverified production ports.
+        </p>
+
+        <div className="p-3.5 rounded-lg bg-[#FAFBFC] border border-[#E2E8F0] flex items-center justify-between text-xs">
+          <div className="flex flex-col">
+            <span className="font-semibold text-[#07111F]">Strict Simulation Mode Enforcement</span>
+            <span className="text-[#667085]">Locks response executions to in-memory virtual firewalls</span>
           </div>
+          <span className="px-2.5 py-1 bg-[#07111F] text-white rounded text-[11px] font-mono font-semibold">
+            LOCKED ON
+          </span>
         </div>
       </div>
     </div>
