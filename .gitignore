@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+**pycache**/
+**/__pycache__/**
+*.pyc
+
+# Production Builds
+client/dist/
+build/
+
+# Environment variables
+.env
+.env.*
+*.env
+server/.env
+client/.env
+
+# Logs & temp
+*.log
+npm-debug.log*
+.DS_Store
+

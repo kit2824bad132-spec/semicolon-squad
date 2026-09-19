@@ -1,0 +1,18 @@
+{
+  "name": "cyber-ai-platform",
+  "version": "1.0.0",
+  "description": "BUILDATHON 2026 — AI Powered Autonomous Cybersecurity & Incident Investigation",
+  "main": "server/server.js",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev:ai": "cd ai-service && uvicorn main:app --reload --port 8000",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:ai\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Semicolon Squad — BUILDATHON 2026",
+  "license": "MIT"
+}
