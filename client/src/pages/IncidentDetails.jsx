@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { 
   ShieldAlert, ArrowLeft, Cpu, Activity, Clock, CheckCircle2, 
   XCircle, AlertOctagon, FileText, Play, Bot, AlertTriangle, Shield,
-  ChevronRight, ExternalLink, Terminal, Eye, SlidersHorizontal, Lock, X
+  ChevronRight, ExternalLink, Terminal, Eye, SlidersHorizontal, Lock, X, RefreshCw
 } from 'lucide-react';
 
 export default function IncidentDetails() {
